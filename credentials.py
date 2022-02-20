@@ -9,3 +9,7 @@ class Credentials:
         self.user_password = user_password
         self.credential_name = credential_name
         self.credential_password = credential_password
+
+    def store_credential(self):
+
+        Credentials.Credentials_list.append(self)
