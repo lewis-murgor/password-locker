@@ -14,6 +14,15 @@ class User:
         User.user_list.append(self)
 
     @classmethod
+    def find_credential(cls, name):
+
+        for credential in Credentials.Credentials_list:
+            if credential.credential_name == name:
+                return True
+
+        return False
+
+    @classmethod
     def log_in(cls, name, password):
 
         for user in cls.user_list:
@@ -21,3 +30,5 @@ class User:
                 return Credentials.Credentials_list
 
         return False
+
+    
