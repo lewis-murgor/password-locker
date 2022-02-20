@@ -47,5 +47,41 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(len(User.user_list), 1)
 
+    def test_save_multiple_users(self):
+        '''
+        test_save_multiple_users to check if we can save multiple user objects to our user_list
+        '''
+
+        self.new_user.save_user()
+        test_user = User("Fabian", "king")
+        test_user.save_user()
+
+        self.assertEqual(len(User.user_list), 2)
+
+    def test_find_credential(self):
+        '''
+        test_find_credential to check if credentials module is being imported correctly
+        '''
+
+        self.new_user.save_user()
+        test_user = User("Fabian", "king")
+        test_user.save_user()
+
+        found_credential = User.find_credential("Fabian")
+        self.assertEqual( found_credential, False )
+
+    def test_log_in(self):
+        '''
+        test_log_in to test if users can login to their password-locker account
+        '''
+
+        self.new_user.save_user()
+        test_user = User("Fabian", "king")
+        test_user.save_user()
+
+        account = User.log_in("Fabian", "king")
+        self.assertEqual(account, Credentials.Credentials_list)
+
+
 if __name__ == '__main__':
     unittest.main()
