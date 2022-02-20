@@ -46,7 +46,7 @@ class Credentials:
         Method that generates a random password.
         '''
 
-        size = 7
+        size = 8
 
         new_password = string.ascii_uppercase + string.ascii_lowercase + string.digits + string.punctuation
 
