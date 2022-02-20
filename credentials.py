@@ -29,3 +29,14 @@ class Credentials:
         password = "".join(choice(new_password) for number in range (size))
 
         return password
+
+    @classmethod
+    def display_credentials(cls, password):
+
+        user_Credentials_list = []
+
+        for credential in cls.Credentials_list:
+            if credential.user_password == password:
+                user_Credentials_list.append(credential)
+
+        return user_Credentials_list
