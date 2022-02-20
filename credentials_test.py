@@ -47,7 +47,7 @@ class TestCredentials(unittest.TestCase):
 
     def test_store_multiple_credentials(self):
         '''
-        test_save_multiple_credentials to check if we can save multiple credential objects to our contact_list
+        test_save_multiple_credentials to check if we can save multiple credential objects to our credentials_list
         '''
 
         self.new_credential.store_credential()
