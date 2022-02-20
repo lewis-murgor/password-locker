@@ -82,6 +82,25 @@ class TestUser(unittest.TestCase):
         account = User.log_in("Fabian", "king")
         self.assertEqual(account, Credentials.Credentials_list)
 
+    def test_display_user(self):
+        '''
+        test_display_user to test if a user can view list of users
+        '''
+
+        self.assertEqual(User.display_user() , User.user_list)
+
+    def test_user_exists(self):
+        '''
+        test_user_exists to test if we can search for a user
+        '''
+
+        self.new_user.save_user()
+        test_user = User("Fabian", "king")
+        test_user.save_user()
+
+        user_exists = User.user_exists("Fabian")
+        self.assertTrue(user_exists)
+
 
 if __name__ == '__main__':
     unittest.main()
