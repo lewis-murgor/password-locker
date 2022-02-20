@@ -15,6 +15,10 @@ class Credentials:
 
         Credentials.Credentials_list.append(self)
 
+    def delete_credential(self):
+
+        Credentials.Credentials_list.remove(self)
+
     @classmethod
     def generate_password(cls):
 
