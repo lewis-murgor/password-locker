@@ -1,5 +1,8 @@
 from random import choice
 import string
+'''
+Import random and string modules from Python for generating passwords
+'''
 
 class Credentials:
     '''
