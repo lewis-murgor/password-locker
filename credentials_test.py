@@ -77,6 +77,32 @@ class TestCredentials(unittest.TestCase):
 
         self.assertEqual( len(generated_password), 8 )
 
+    def test_display_credentials(self):
+        '''
+        test_display_credentials to test if we can display credentialsin the credentials list
+        '''
+
+        self.new_credential.store_credential()
+        test_credential = Credentials("kiplagat", "Twitter", "Twitterx29")
+        test_credential.store_credential()
+
+        self.assertEqual( len(Credentials.display_credentials("kiplagat")) , 1)
+
+    def test_credential_exists(self):
+        '''
+        test_credential_exists to test if we can a boolean toknoe whether a credential account exists
+        '''
+
+        self.new_credential.store_credential()
+        test_credential = Credentials("kiplagat", "Twitter", "Twitterx29")
+        test_credential.store_credential()
+
+        credential_exists = Credentials.credential_exists("Twitter")
+        self.assertTrue(credential_exists)
+        
+
+
+
 
 
 if __name__ == '__main__':
