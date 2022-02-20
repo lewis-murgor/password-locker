@@ -12,3 +12,12 @@ class User:
     def save_user(self):
 
         User.user_list.append(self)
+
+    @classmethod
+    def log_in(cls, name, password):
+
+        for user in cls.user_list:
+            if user.user_name == name and user.user_password == password:
+                return Credentials.Credentials_list
+
+        return False
