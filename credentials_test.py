@@ -51,12 +51,33 @@ class TestCredentials(unittest.TestCase):
         '''
 
         self.new_credential.store_credential()
-
         test_credential = Credentials("kiplagat", "Twitter", "Twitterx29")
-
         test_credential.store_credential()
 
         self.assertEqual(len(Credentials.Credentials_list),2)
+
+    def test_delete_credential(self):
+        '''
+        test_delete_credential to test if we can remove a credential account from our credentials list
+        '''
+
+        self.new_credential.store_credential()
+        test_credential = Credentials("kiplagat", "Twitter", "Twitterx29")
+        test_credential.store_credential()
+
+        self.new_credential.delete_credential()
+        self.assertEqual(len(Credentials.Credentials_list),1)
+
+    def test_generate_password(self):
+        '''
+        test_generate_password to test if we can generate a password for credential accounts
+        '''
+
+        generated_password = self.new_credential.generate_password()
+
+        self.assertEqual( len(generated_password), 8 )
+
+
 
 if __name__ == '__main__':
     unittest.main()
