@@ -1,9 +1,11 @@
 
 import unittest
 from credentials import Credentials
+import pyperclip
 '''
 import unittest to create tests for credentials
 import Credentials class to be tested
+import pyperclip to copy and paste items to clipboard
 '''
 
 class TestCredentials(unittest.TestCase):
@@ -99,10 +101,22 @@ class TestCredentials(unittest.TestCase):
 
         credential_exists = Credentials.credential_exists("Twitter")
         self.assertTrue(credential_exists)
+
+    def test_find_credential_by_name(self):
+        '''
+        test_find_credential_by_name to test if we can find a credential using the credential name
+        '''
+
+        self.new_credential.store_credential()
+        test_credential = Credentials("kiplagat", "Twitter", "Twitterx29")
+        test_credential.store_credential()
+
+        found_credential = Credentials.find_by_name("Twitter")
+
+        self.assertEqual(found_credential.credential_password, test_credential.credential_password)
+
+    
         
-
-
-
 
 
 if __name__ == '__main__':
