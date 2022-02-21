@@ -1,6 +1,6 @@
+#!/usr/bin/env python3.8
 
 
-from ast import While
 from user import User
 from credentials import Credentials
 '''
@@ -21,7 +21,7 @@ def create_user(name, password):
 
     return new_user
 
-def save_users(user):
+def save_users(User):
     '''
     Function that saves a user account
 
@@ -75,7 +75,7 @@ def create_credential(user_password, name, password):
 
     return new_credential
 
-def save_credentials(credential):
+def save_credentials(Credentials):
     '''
     Function that saves a credential
 
