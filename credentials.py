@@ -1,7 +1,9 @@
 from random import choice
 import string
+import pyperclip
 '''
 Import random and string modules from Python for generating passwords
+Import pyperclip to copy and paste items to clipboard
 '''
 
 class Credentials:
@@ -79,3 +81,21 @@ class Credentials:
                 return True
 
         return False
+
+    @classmethod
+    def find_by_name(cls, name):
+        '''
+        method that takes in a name and returns and returns a credential that matches that name
+
+        Args:
+            name: credential name to search for
+
+        Returns:
+               Credential that matches the name
+        '''
+
+        for credential in cls.Credentials_list:
+            if credential.credential_name == name:
+                return credential
+
+    
